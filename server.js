@@ -33,4 +33,4 @@ app.get("*", (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 })
 
-app.listen(process.env.port || 3000, () => console.log('Server Started'));
+app.listen(process.env.PORT || 3000, () => console.log('Server Started'));
