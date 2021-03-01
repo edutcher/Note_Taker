@@ -16,11 +16,16 @@ app.get("/notes", (req, res) => {
 
 app.get("/api/notes", (req, res) => {
     res.send(allNotes.getNotes());
-    console.log('Heya');
 })
 
 app.post("/api/notes", (req, res) => {
-    allNotes.addNote(req.body)
+    allNotes.addNote(req.body);
+    res.sendFile(path.join(__dirname, 'public/notes.html'));
+})
+
+app.delete("/api/notes/:id", (req, res) => {
+    const { id } = req.params;
+    allNotes.delNote(id);
     res.sendFile(path.join(__dirname, 'public/notes.html'));
 })
 
